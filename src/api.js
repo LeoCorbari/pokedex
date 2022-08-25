@@ -19,3 +19,13 @@ export const getPokemons = async (limit = 50, offset = 0) => {
     console.log("Erro: ", error);
   }
 };
+
+export const getPokemonsData = async (url) => {
+  try {
+    const response = await fetch(url);
+    return await response.json();
+  } catch (error) {
+    // To DO fazer um ToastyNotify de pokemon não encontrado
+    console.log("Erro: ", error);
+  }
+};

@@ -1,7 +1,8 @@
 import React from "react";
+import Pokemon from "./Pokemon";
 
 const Pokedex = (props) => {
-  const { pokmons, loading } = props;
+  const { pokemons, loading } = props;
 
   return (
     <main>
@@ -12,7 +13,12 @@ const Pokedex = (props) => {
       {loading ? (
         <div> Carregando... </div>
       ) : (
-        <div className="pokedex-grid"></div>
+        <div className="pokedex-grid">
+          {pokemons &&
+            pokemons.map((pokemon, index) => {
+              return <Pokemon index={index} pokemon={pokemon} />;
+            })}
+        </div>
       )}
     </main>
   );
